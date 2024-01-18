@@ -1,0 +1,33 @@
+# Logs
+client/logs
+client/*.log
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+client/pnpm-debug.log*
+client/lerna-debug.log*
+
+client/node_modules
+client/dist
+client/dist-ssr
+client/*.local
+
+# Editor directories and files
+client/.vscode/*
+.vscode/*
+client/!.vscode/extensions.json
+!.vscode/extensions.json
+client/.idea
+.idea
+client/.DS_Store
+.DS_Store
+client/*.suo
+*.suo
+client/*.ntvs*
+*.ntvs*
+client/*.njsproj
+*.njsproj
+client/*.sln
+*.sln
+client/*.sw?
+*.sw?

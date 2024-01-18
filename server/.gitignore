@@ -1,0 +1,8 @@
+node_modules
+logs/*
+activitylogs/*
+
+uploads/*
+
+.env
+dist
