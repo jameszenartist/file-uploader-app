@@ -5,7 +5,6 @@ const Origins = require("./origins");
 
 const corsOptions = {
   origin: (origin, cb) => {
-    console.log("Request origin:", origin);
     // if domain is in whitelist, or no origin/undefined (for development)
     if (Origins.indexOf(origin) !== -1) {
       //null is the error (no error), origin will be sent back & allowed

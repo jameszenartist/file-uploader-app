@@ -12,6 +12,8 @@ const verifyJWT = require("./middleware/verifyJWT");
 const { Sentry, morganLogger } = require("./middleware/logUserActivity");
 const cookieParser = require("cookie-parser");
 const credentials = require("./middleware/credentials");
+const { clearAllAssets, archiveIssues } = require("./config/cronJobs");
+const { limitCron } = require("./middleware/limitCron");
 
 // The request handler must be the first middleware on the app
 app.use(Sentry.Handlers.requestHandler());
@@ -43,6 +45,9 @@ app.use(helmet());
 app.use(morganLogger);
 app.use(logger);
 
+app.get("/deleteAllAssets", limitCron, clearAllAssets);
+app.get("/archiveIssues", limitCron, archiveIssues);
+
 //fetch cookies credentials requirement
 app.use(credentials);
 app.use(cors(corsOptions));
@@ -62,6 +67,6 @@ app.use("/refresh", require("./routes/refresh"));
 app.use("/profile", require("./routes/api/profile"));
 
 app.use(Sentry.Handlers.errorHandler());
-// app.use(errorHandler);
+app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}...`));
