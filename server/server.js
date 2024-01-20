@@ -62,6 +62,6 @@ app.use("/refresh", require("./routes/refresh"));
 app.use("/profile", require("./routes/api/profile"));
 
 app.use(Sentry.Handlers.errorHandler());
-app.use(errorHandler);
+// app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}...`));
