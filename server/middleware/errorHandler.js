@@ -7,7 +7,7 @@ const errorHandler = (err, req, res, next) => {
   const stack = process.env.NODE_ENV === "development" ? err.stack : {};
   // logEvents(`${err.name} ${err.message}`, "errLog.txt");
   console.error(errStatus, stack, errMsg);
-  return res.sendStatus(errStatus);
+  return;
 };
 
 module.exports = { errorHandler };
