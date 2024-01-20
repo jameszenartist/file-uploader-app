@@ -4,7 +4,12 @@ const crypto = require("crypto");
 require("dotenv").config();
 
 const verifyJWT = require("../middleware/verifyJWT");
-const { getUser, clearTable, updateUserDBToken } = require("../pg/pool");
+const {
+  checkForRowData,
+  getUser,
+  clearTable,
+  updateUserDBToken,
+} = require("../pg/pool");
 
 const { deleteAllAssets } = require("../config/cloudinary");
 const mailService = require("../config/mailService");
@@ -85,6 +90,11 @@ const limitCron = (req, res, next) => {
 
 router.get("/deleteAllAssets", limitCron, async (req, res) => {
   try {
+    const rowData = await checkForRowData("user_files").catch((err) => {
+      console.log(err);
+      throw err;
+    });
+    if (!rowData) return res.sendStatus(204);
     let currDate = new Date().toLocaleString("en-US", {
       timeZone: "America/Los_Angeles",
     });

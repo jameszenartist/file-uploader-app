@@ -39,6 +39,28 @@ const createUserFilesTableText = `CREATE TABLE user_files (
   download_time TEXT[] DEFAULT '{}'
 );`;
 
+async function checkForRowData(tableName) {
+  const client = await pool.connect();
+  try {
+    const sql = format(
+      `SELECT EXISTS (
+        SELECT 1 FROM information_schema.tables
+        WHERE table_name = %L
+    );`,
+      tableName
+    );
+    // Check if the table exists
+    const result = await client.query(sql);
+    client.release();
+
+    return result.rows[0].exists;
+  } catch (err) {
+    console.error("Table creation error: ", err);
+    client.release();
+    throw err;
+  }
+}
+
 async function createTable(tableName, createCommand) {
   const client = await pool.connect();
 
@@ -357,6 +379,7 @@ async function deleteDBFiles(username, filename) {
 
 module.exports = {
   USER_STORAGE_LIMIT,
+  checkForRowData,
   clearTable,
   getUser,
   getCurrentStorageAmt,
