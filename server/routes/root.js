@@ -94,7 +94,7 @@ router.get("/deleteAllAssets", limitCron, async (req, res) => {
       console.log(err);
       throw err;
     });
-    if (!rowData) return res.sendStatus(204);
+    if (rowData.count === "0") return res.sendStatus(204);
     let currDate = new Date().toLocaleString("en-US", {
       timeZone: "America/Los_Angeles",
     });

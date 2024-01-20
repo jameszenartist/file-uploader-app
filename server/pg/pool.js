@@ -42,18 +42,13 @@ const createUserFilesTableText = `CREATE TABLE user_files (
 async function checkForRowData(tableName) {
   const client = await pool.connect();
   try {
-    const sql = format(
-      `SELECT EXISTS (
-        SELECT 1 FROM information_schema.tables
-        WHERE table_name = %L
-    );`,
-      tableName
-    );
-    // Check if the table exists
+    const sql = format(`SELECT COUNT(*) FROM %I`, tableName);
+    // Check if any rows exist
     const result = await client.query(sql);
+
     client.release();
 
-    return result.rows[0].exists;
+    return result.rows[0];
   } catch (err) {
     console.error("Table creation error: ", err);
     client.release();
