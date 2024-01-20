@@ -45,6 +45,13 @@ app.use(helmet());
 app.use(morganLogger);
 app.use(logger);
 
+app.use((req, res, next) => {
+  if (req.originalUrl.includes("favicon.ico")) {
+    res.sendStatus(204);
+  }
+  next();
+});
+
 app.get("/deleteAllAssets", limitCron, clearAllAssets);
 app.get("/archiveIssues", limitCron, archiveIssues);
 
