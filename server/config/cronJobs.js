@@ -58,7 +58,20 @@ const archiveIssues = async (req, res) => {
         throw err;
       });
 
-    if (!allIssuesResult.length)
+    if (allIssuesResult.length === 0) {
+      let currDate = new Date().toLocaleString("en-US", {
+        timeZone: "America/Los_Angeles",
+      });
+
+      Sentry.captureMessage(
+        `Archiving Sentry logs not needed @ ${currDate} due to them being empty` +
+          "\n\n"
+      );
+
+      return res.sendStatus(204);
+    }
+
+    if (!allIssuesResult)
       return res
         .status(500)
         .json({ error: `Sentry issues logs request failed` });
