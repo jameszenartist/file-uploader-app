@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@sentry/node": "^7.91.0",
-    "@sentry/profiling-node": "^7.107.0",
+    "@sentry/profiling-node": "^8.8.0",
     "@sentry/vite-plugin": "^2.10.2",
     "bcrypt": "^5.1.1",
     "cloudinary": "^1.41.0",
