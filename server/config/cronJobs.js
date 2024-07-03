@@ -17,6 +17,10 @@ const clearAllAssets = async (req, res) => {
     console.log("current time: ", currDate);
 
     const result = await clearTable("user_files").then(async (res) => {
+      Sentry.captureMessage(
+        `Delete Postgres user_files table data Successful @ ${currDate}`
+      );
+
       let cloudRes = await deleteAllAssets()
         .then((res) => {
           console.log(`Delete all Cloudinary Assets Successful @ ${currDate}`);
