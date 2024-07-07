@@ -5,11 +5,14 @@ const limitCron = (req, res, next) => {
   //   return res.status(403).json({ error: `Forbidden cron job request` });
   // }
 
-  if (req.headers["user-agent"]) {
-    console.log(
-      "cronjob middleware, user-agent is: ",
-      req.headers["user-agent"]
-    );
+  const authHeader = req.headers.authorization || req.headers.Authorization;
+
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
+    if (token === process.env.FILE_APP_UPLOADER_MIDDLEWARE_TOKEN) {
+      return next();
+    }
+
     next();
   } else {
     return res.status(403).json({ error: `Forbidden cron job request` });
