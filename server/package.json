@@ -15,7 +15,7 @@
     "@sentry/profiling-node": "^8.13.0",
     "@sentry/vite-plugin": "^2.10.2",
     "bcrypt": "^5.1.1",
-    "cloudinary": "^1.41.0",
+    "cloudinary": "^2.3.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
