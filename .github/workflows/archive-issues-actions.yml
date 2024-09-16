@@ -1,0 +1,13 @@
+name: archive issues cron job
+
+on:
+  schedule:
+    - cron: "0 * * * *" # Adjust the cron schedule as needed
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: archive issues cron job
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.FILE_APP_UPLOADER_MIDDLEWARE_TOKEN }}" https://your-server/api/path
