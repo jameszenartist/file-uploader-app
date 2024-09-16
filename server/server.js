@@ -52,8 +52,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/deleteAllAssets", limitCron, clearAllAssets);
-app.get("/archiveIssues", limitCron, archiveIssues);
+// TODO: update & config github actions
+// app.get("/deleteAllAssets", limitCron, clearAllAssets);
+// app.get("/archiveIssues", limitCron, archiveIssues);
 
 //fetch cookies credentials requirement
 app.use(credentials);
