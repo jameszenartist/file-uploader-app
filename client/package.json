@@ -21,7 +21,7 @@
     "@uppy/react": "^4.2.3",
     "@uppy/status-bar": "^4.1.2",
     "@uppy/webcam": "^4.1.2",
-    "@uppy/xhr-upload": "^4.3.3",
+    "@uppy/xhr-upload": "^5.0.1",
     "react": "^19.1.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.5.2"
