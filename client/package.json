@@ -18,7 +18,7 @@
     "@uppy/drag-drop": "^5.0.2",
     "@uppy/file-input": "^4.1.1",
     "@uppy/progress-bar": "^4.2.1",
-    "@uppy/react": "^4.2.3",
+    "@uppy/react": "^5.1.0",
     "@uppy/status-bar": "^4.1.2",
     "@uppy/webcam": "^4.1.2",
     "@uppy/xhr-upload": "^5.0.1",
