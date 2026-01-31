@@ -10,21 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sentry/vite-plugin": "^3.3.1",
-    "@tanstack/react-query": "^5.74.4",
-    "@uppy/compressor": "^2.2.1",
-    "@uppy/core": "^4.4.2",
-    "@uppy/dashboard": "^4.3.2",
-    "@uppy/drag-drop": "^4.1.1",
+    "@sentry/vite-plugin": "^4.8.0",
+    "@tanstack/react-query": "^5.90.17",
+    "@uppy/compressor": "^3.1.0",
+    "@uppy/core": "^5.2.0",
+    "@uppy/dashboard": "^5.1.0",
+    "@uppy/drag-drop": "^5.1.0",
     "@uppy/file-input": "^4.1.1",
     "@uppy/progress-bar": "^4.2.1",
-    "@uppy/react": "^4.2.3",
-    "@uppy/status-bar": "^4.1.2",
-    "@uppy/webcam": "^4.1.2",
-    "@uppy/xhr-upload": "^4.3.3",
-    "react": "^19.1.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^7.5.2"
+    "@uppy/react": "^5.1.1",
+    "@uppy/status-bar": "^5.1.0",
+    "@uppy/webcam": "^5.1.0",
+    "@uppy/xhr-upload": "^5.1.1",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.13.0"
   },
   "devDependencies": {
     "@types/react": "^19.1.2",
@@ -33,7 +33,7 @@
     "eslint": "^9.24.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "vite": "^6.2.6"
+    "eslint-plugin-react-refresh": "^0.4.21",
+    "vite": "^6.4.1"
   }
 }
